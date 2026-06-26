@@ -1,0 +1,276 @@
+/**
+ * ==============================================
+ * ARCHIVO: styles/_animations.css
+ * ==============================================
+ * 
+ * PROPÓSITO:
+ * Definir todas las animaciones y transiciones del proyecto.
+ * 
+ * CONTENIDO:
+ * - Keyframes para animaciones
+ * - Clases de animación predefinidas
+ * - Transiciones reutilizables
+ */
+
+/* ==============================================
+   KEYFRAMES (ANIMACIONES)
+   ============================================== */
+
+/**
+ * Animación: Indicador de scroll
+ * Barra que se mueve de arriba a abajo repetidamente
+ */
+@keyframes scrollIndicator {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/**
+ * Animación: Fade in + slide up
+ * Para elementos que aparecen suavemente
+ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Animación: Fade in simple
+ * Opacidad de 0 a 1
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/**
+ * Animación: Scale in
+ * Escala de 0.9 a 1 con fade
+ */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/**
+ * Animación: Slide in from left
+ * Para elementos que entran desde la izquierda
+ */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Animación: Pulse (latido)
+ * Para elementos que necesitan atención
+ */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/**
+ * Animación: Progress bar del preloader
+ * Barra que crece de 0% a 100%
+ */
+@keyframes preloaderProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ==============================================
+   CLASES DE ANIMACIÓN
+   Usar con JavaScript o CSS
+   ============================================== */
+
+/* Indicador de scroll animado */
+.hero-scroll-progress {
+  animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+/* Animación de fade in para badges */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Animación de slide up */
+.animate-slide-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Elementos ocultos para animar con JS */
+.animate-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Animación de hover para preloader */
+.preloader-progress {
+  animation: preloaderProgress 2s ease-out forwards;
+}
+
+/* ==============================================
+   TRANSICIONES PREDEFINIDAS
+   Usar con :hover, :focus, etc.
+   ============================================== */
+
+/* Transición rápida (150ms) */
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+/* Transición base (300ms) */
+.transition-base {
+  transition: all var(--transition-base);
+}
+
+/* Transición lenta (500ms) */
+.transition-slow {
+  transition: all var(--transition-slow);
+}
+
+/* Transición para colores */
+.transition-colors {
+  transition: color var(--transition-base),
+              background-color var(--transition-base),
+              border-color var(--transition-base);
+}
+
+/* Transición para transformaciones (scale, translate) */
+.transition-transform {
+  transition: transform var(--transition-base);
+}
+
+/* Transición para opacidad */
+.transition-opacity {
+  transition: opacity var(--transition-base);
+}
+
+/* ==============================================
+   HOVER EFFECTS
+   Clases utilitarias para :hover
+   ============================================== */
+
+/* Escala al hover (1.05) */
+.hover-scale {
+  transition: transform var(--transition-base);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Escala al click (0.95) */
+.active-scale:active {
+  transform: scale(0.95);
+}
+
+/* Elevación al hover (sombra) */
+.hover-elevation {
+  transition: box-shadow var(--transition-base),
+              transform var(--transition-base);
+}
+
+.hover-elevation:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Opacidad al hover */
+.hover-opacity {
+  transition: opacity var(--transition-base);
+}
+
+.hover-opacity:hover {
+  opacity: 0.8;
+}
+
+/* ==============================================
+   EFECTOS ESPECIALES
+   ============================================== */
+
+/* Efecto glass (desenfoque de fondo) */
+.glass {
+  background: rgba(17, 20, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Grayscale a color en hover */
+.grayscale-hover {
+  filter: grayscale(100%);
+  transition: filter var(--transition-slower);
+}
+
+.grayscale-hover:hover {
+  filter: grayscale(0%);
+}
+
+/* Imagen con zoom en hover */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform var(--transition-slower);
+}
+
+.img-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Overlay con gradiente en hover */
+.overlay-hover {
+  position: relative;
+}
+
+.overlay-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 20, 18, 0.9) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.overlay-hover:hover::after {
+  opacity: 1;
+}

@@ -1,0 +1,282 @@
+/**
+ * ==============================================
+ * ARCHIVO: Hero.css
+ * Estilos específicos de la sección Hero
+ * ==============================================
+ */
+
+/* ==============================================
+   SECCIÓN PRINCIPAL
+   ============================================== */
+
+.hero-section {
+  /* Altura mínima de pantalla completa */
+  min-height: 100vh;
+  
+  /* Centrar contenido verticalmente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* Padding (mayor en desktop) */
+  padding: var(--space-20) var(--space-6) var(--space-12);
+  
+  /* Posición relativa para posicionar elementos absolute */
+  position: relative;
+  
+  /* Ocultar overflow para el parallax */
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding: var(--space-20) var(--space-24) var(--space-12);
+  }
+}
+
+/* ==============================================
+   TEXTO DE FONDO (DECORATIVO)
+   Texto gigante semi-transparente detrás
+   ============================================== */
+
+.hero-bg-text {
+  /* Posición absoluta */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  /* Tamaño de fuente enorme (20% del viewport) */
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: 20vw;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  
+  /* Color semi-transparente */
+  color: var(--on-surface);
+  opacity: 0.05;
+  
+  /* No interactivo */
+  pointer-events: none;
+  
+  /* Z-index bajo (detrás del contenido) */
+  z-index: 0;
+}
+
+/* ==============================================
+   CONTENIDO PRINCIPAL
+   ============================================== */
+
+.hero-content {
+  /* Posición relativa para z-index */
+  position: relative;
+  z-index: 10;
+  
+  /* Ancho máximo */
+  max-width: 64rem;
+}
+
+/* ==============================================
+   BADGE/DECORADOR
+   ============================================== */
+
+.hero-badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  background: var(--surface-highest);
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--space-8);
+}
+
+/* ==============================================
+   TÍTULO PRINCIPAL
+   ============================================== */
+
+.hero-title {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--on-surface);
+  margin-bottom: var(--space-8);
+  
+  /* Para el efecto 3D flip */
+  perspective: 1000px;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: var(--text-4xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+}
+
+/* Segunda línea del título (color diferente) */
+.hero-title-accent {
+  color: var(--primary-container);
+}
+
+/* ==============================================
+   SUBTÍTULO/DESCRIPCIÓN
+   ============================================== */
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--outline);
+  max-width: 36rem;
+  margin-bottom: var(--space-12);
+}
+
+/* ==============================================
+   BOTONES CTA (CALL TO ACTION)
+   ============================================== */
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Botón principal (gradiente) */
+.hero-btn-primary {
+  display: inline-block;
+  padding: var(--space-4) var(--space-8);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-primary);
+  transition: transform var(--transition-base);
+}
+
+.hero-btn-primary:hover {
+  transform: scale(1.05);
+}
+
+.hero-btn-primary:active {
+  transform: scale(0.95);
+}
+
+/* Botón secundario (outline) */
+.hero-btn-secondary {
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  border-bottom: 1px solid var(--outline-variant);
+  padding-bottom: var(--space-1);
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.hero-btn-secondary:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ==============================================
+   INDICADOR DE SCROLL
+   ============================================== */
+
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-12);
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+  .hero-scroll-indicator {
+    display: flex;
+  }
+}
+
+.hero-scroll-text {
+  font-family: var(--font-headline);
+  font-size: 0.5625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--outline);
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 3rem;
+  background: var(--outline-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-scroll-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: var(--primary);
+  animation: scrollIndicator 2s ease-in-out infinite;
+}
+
+@keyframes scrollIndicator {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* ==============================================
+   VIDEO DE FONDO
+   ============================================== */
+
+.hero-video-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 85%;
+  z-index: 1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.hero-video-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to left, transparent, var(--surface));
+}

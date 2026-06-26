@@ -1,0 +1,174 @@
+/**
+ * ==============================================
+ * ARCHIVO: Tattoos.css
+ * Estilos de la sección de portafolio
+ * ==============================================
+ */
+
+/* ==============================================
+   SECCIÓN
+   ============================================== */
+
+.tattoos-section {
+  padding: var(--space-20) var(--space-6);
+  background: var(--surface-low);
+}
+
+@media (min-width: 768px) {
+  .tattoos-section {
+    padding: var(--space-32) var(--space-12);
+  }
+}
+
+/* ==============================================
+   HEADER
+   ============================================== */
+
+.tattoos-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-20);
+}
+
+@media (min-width: 768px) {
+  .tattoos-header {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--space-12);
+  }
+}
+
+.tattoos-header-left {
+  flex-shrink: 0;
+}
+
+/* Línea divisoria (solo visible en desktop) */
+.tattoos-header-divider {
+  display: none;
+  flex: 1;
+  height: 1px;
+  background: var(--outline-variant);
+  opacity: 0.2;
+}
+
+@media (min-width: 768px) {
+  .tattoos-header-divider {
+    display: block;
+  }
+}
+
+/* Tags de filtro */
+.tattoos-tags {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* ==============================================
+   GRID DE TATTOOS
+   ============================================== */
+
+.tattoos-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-6);
+}
+
+/* ==============================================
+   TARJETA DE TATTOO
+   ============================================== */
+
+.tattoo-card {
+  position: relative;
+}
+
+/* Imagen */
+.tattoo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+  /* Efecto grayscale inicial */
+  filter: grayscale(100%);
+  
+  /* Transición suave */
+  transition: transform 0.7s ease, filter 0.7s ease;
+}
+
+/* Hover: zoom y color */
+.tattoo-card:hover .tattoo-image {
+  transform: scale(1.1);
+  filter: grayscale(0%);
+}
+
+/* Overlay con gradiente */
+.tattoo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 20, 18, 0.9) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.tattoo-card:hover .tattoo-overlay {
+  opacity: 1;
+}
+
+/* Label del tattoo */
+.tattoo-label {
+  position: absolute;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  opacity: 0;
+  transform: translateY(var(--space-4));
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tattoo-card:hover .tattoo-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tattoo-label span {
+  font-family: var(--font-headline);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* ==============================================
+   TAMAÑOS DE TARJETA (GRID)
+   ============================================== */
+
+/* Columnas responsive usando Tailwind-style classes */
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
+
+@media (min-width: 768px) {
+  .md\:col-span-4 {
+    grid-column: span 4 / span 4;
+  }
+}
+
+/* Aspect ratios */
+.aspect-\[3\/4\] {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.h-64 {
+  height: 16rem;
+}
+
+@media (min-width: 768px) {
+  .md\:h-80 {
+    height: 20rem;
+  }
+}

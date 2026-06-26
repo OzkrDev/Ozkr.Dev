@@ -1,0 +1,63 @@
+/**
+ * ==============================================
+ * ARCHIVO: Footer.css
+ * Estilos del footer
+ * ==============================================
+ */
+
+/* ==============================================
+   FOOTER
+   ============================================== */
+
+.footer {
+  padding: var(--space-16) var(--space-6);
+  border-top: 1px solid var(--outline-variant);
+}
+
+.footer-content {
+  max-width: 1536px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+/* ==============================================
+   LINKS DE REDES SOCIALES
+   ============================================== */
+
+.footer-socials {
+  display: flex;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-link {
+  font-family: var(--font-headline);
+  font-size: 0.5625rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--outline);
+  transition: letter-spacing 0.5s ease, color var(--transition-base);
+}
+
+.footer-link:hover {
+  color: var(--on-surface);
+  letter-spacing: 0.25em;
+}
+
+/* ==============================================
+   COPYRIGHT
+   ============================================== */
+
+.footer-copyright {
+  font-family: var(--font-headline);
+  font-size: 0.5625rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary-container);
+}

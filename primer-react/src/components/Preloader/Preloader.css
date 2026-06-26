@@ -1,0 +1,57 @@
+/**
+ * ==============================================
+ * ARCHIVO: Preloader.css
+ * Estilos específicos del componente Preloader
+ * ==============================================
+ */
+
+.preloader {
+  /* Posición fija cubriendo toda la pantalla */
+  position: fixed;
+  inset: 0;
+  
+  /* Color de fondo (igual que el tema) */
+  background: var(--surface);
+  
+  /* Z-index muy alto para estar encima de todo */
+  z-index: var(--z-preloader);
+  
+  /* Centrar contenido con flexbox */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  
+  /* Transición para fade out */
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader-text {
+  /* Texto del logo */
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+.preloader-bar {
+  /* Contenedor de la barra */
+  width: 200px;
+  height: 1px;
+  background: var(--outline-variant);
+  
+  /* Para posicionar la barra de progreso */
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader-progress {
+  /* Barra de progreso */
+  height: 100%;
+  background: var(--primary);
+  
+  /* Transición suave del ancho */
+  transition: width 0.1s linear;
+}

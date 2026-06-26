@@ -1,0 +1,127 @@
+/**
+ * ==============================================
+ * ARCHIVO: Blog.css
+ * Estilos de la sección Blog/Editorial
+ * ==============================================
+ */
+
+/* ==============================================
+   SECCIÓN
+   ============================================== */
+
+.blog-section {
+  padding: var(--space-20) var(--space-6);
+  background: var(--surface-lowest);
+}
+
+@media (min-width: 768px) {
+  .blog-section {
+    padding: var(--space-32) var(--space-12);
+  }
+}
+
+/* ==============================================
+   HEADER
+   ============================================== */
+
+.blog-header {
+  margin-bottom: var(--space-20);
+}
+
+.blog-header-line {
+  width: 5rem;
+  height: 0.25rem;
+  background: var(--primary-container);
+  margin-top: var(--space-4);
+}
+
+/* ==============================================
+   GRID DE ARTÍCULOS
+   ============================================== */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+}
+
+@media (min-width: 768px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-12);
+  }
+}
+
+/* ==============================================
+   CARD DE ARTÍCULO
+   ============================================== */
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  cursor: pointer;
+}
+
+/* Contenedor de imagen */
+.blog-image-container {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+/* Imagen */
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image {
+  transform: scale(1.05);
+}
+
+/* Contenido del card */
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Categoría */
+.blog-category {
+  font-family: var(--font-headline);
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* Título */
+.blog-title {
+  font-family: var(--font-headline);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+  transition: color var(--transition-base);
+}
+
+.blog-card:hover .blog-title {
+  color: var(--primary-container);
+}
+
+/* Excerpt */
+.blog-excerpt {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--outline);
+  font-weight: 300;
+  
+  /* Limitar a 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
