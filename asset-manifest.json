@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Ozkr.Dev/static/css/main.f3f97e54.css",
+    "main.js": "/Ozkr.Dev/static/js/main.5708c14f.js",
+    "static/js/453.66741fd0.chunk.js": "/Ozkr.Dev/static/js/453.66741fd0.chunk.js",
+    "index.html": "/Ozkr.Dev/index.html",
+    "main.f3f97e54.css.map": "/Ozkr.Dev/static/css/main.f3f97e54.css.map",
+    "main.5708c14f.js.map": "/Ozkr.Dev/static/js/main.5708c14f.js.map",
+    "453.66741fd0.chunk.js.map": "/Ozkr.Dev/static/js/453.66741fd0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3f97e54.css",
+    "static/js/main.5708c14f.js"
+  ]
+}
